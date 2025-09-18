@@ -1,76 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quantum Trading Bot Tutorial</title>
-  <style>
-    body {
-      margin: 0;
-      background: black;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-    #player {
-      display: none; /* tago sa start */
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      border: none;
-      z-index: 1;
-    }
-    #playBtn {
-      padding: 16px 32px;
-      background: #00f0ff;
-      border: none;
-      border-radius: 12px;
-      color: black;
-      font-size: 20px;
-      font-weight: bold;
-      cursor: pointer;
-      box-shadow: 0 0 15px #00f0ff;
-      z-index: 2;
-    }
-    #playBtn:hover {
-      background: #00c0cc;
-      box-shadow: 0 0 25px #00f0ff;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Trading Bot Tutorial</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #player {
+      display: none; /* tago sa start */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      z-index: 1;
+    }
+    #playBtn {
+      padding: 18px 40px;
+      background: linear-gradient(90deg, #00f0ff, #007bff);
+      border: none;
+      border-radius: 50px;
+      color: white;
+      font-size: 22px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 20px #00f0ff, 0 0 40px #007bff;
+      z-index: 2;
+      transition: all 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    #playBtn:hover {
+      transform: scale(1.1);
+      background: linear-gradient(90deg, #00ffd5, #00a2ff);
+      box-shadow: 0 0 30px #00f0ff, 0 0 60px #00a2ff;
+    }
+  </style>
 </head>
 <body>
-  <!-- Button -->
-  <button id="playBtn">▶ Play Tutorial with Sound</button>
+  <!-- Button -->
+  <button id="playBtn">▶ Play Tutorial</button>
 
-  <!-- YouTube player -->
-  <div id="player"></div>
+  <!-- YouTube player -->
+  <div id="player"></div>
 
-  <script src="https://www.youtube.com/iframe_api"></script>
-  <script>
-    let player;
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    let player;
 
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        videoId: '6ubd5aGTyPE',
-        playerVars: {
-          autoplay: 0,   // dili auto play
-          controls: 1,   // enable controls
-          modestbranding: 1,
-          rel: 0,
-          showinfo: 0
-        }
-      });
-    }
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: '6ubd5aGTyPE',
+        playerVars: {
+          autoplay: 0,   // dili auto play
+          controls: 1,   // enable controls
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0
+        }
+      });
+    }
 
-    document.getElementById('playBtn').addEventListener('click', () => {
-      document.getElementById('playBtn').style.display = 'none';
-      document.getElementById('player').style.display = 'block';
-      player.playVideo();
-    });
-  </script>
+    document.getElementById('playBtn').addEventListener('click', () => {
+      document.getElementById('playBtn').style.display = 'none';
+      document.getElementById('player').style.display = 'block';
+      player.playVideo();
+    });
+  </script>
 </body>
 </html>
