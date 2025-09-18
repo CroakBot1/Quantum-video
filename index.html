@@ -1,65 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Quantum Video Tutorial</title>
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      color: white;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      font-family: Arial, sans-serif;
-    }
-    video {
-      width: 80%;
-      max-width: 900px;
-      border: 2px solid #fff;
-      border-radius: 12px;
-      display: none; /* hidden until button is clicked */
-    }
-    .btn {
-      background: #007bff;
-      color: white;
-      padding: 14px 28px;
-      font-size: 18px;
-      font-weight: bold;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      margin-top: 20px;
-    }
-    .btn:hover {
-      background: #0056b3;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quantum Trading Bot Tutorial</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    #player {
+      display: none; /* tago sa start */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+      z-index: 1;
+    }
+    #playBtn {
+      padding: 16px 32px;
+      background: #00f0ff;
+      border: none;
+      border-radius: 12px;
+      color: black;
+      font-size: 20px;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00f0ff;
+      z-index: 2;
+    }
+    #playBtn:hover {
+      background: #00c0cc;
+      box-shadow: 0 0 25px #00f0ff;
+    }
+  </style>
 </head>
 <body>
+  <!-- Button -->
+  <button id="playBtn">▶ Play Tutorial with Sound</button>
 
-  <h1>Quantum Video Tutorial</h1>
+  <!-- YouTube player -->
+  <div id="player"></div>
 
-  <!-- Video Player -->
-  <video id="tutorialVideo" autoplay muted loop controls>
-    <source src="1758175350962.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script>
+    let player;
 
-  <!-- Button -->
-  <button class="btn" onclick="showVideo()">View Tutorial Video</button>
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: '6ubd5aGTyPE',
+        playerVars: {
+          autoplay: 0,   // dili auto play
+          controls: 1,   // enable controls
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0
+        }
+      });
+    }
 
-  <script>
-    function showVideo() {
-      const video = document.getElementById("tutorialVideo");
-      video.style.display = "block";
-      video.play();
-    }
-  </script>
-
+    document.getElementById('playBtn').addEventListener('click', () => {
+      document.getElementById('playBtn').style.display = 'none';
+      document.getElementById('player').style.display = 'block';
+      player.playVideo();
+    });
+  </script>
 </body>
 </html>
-
