@@ -1,1 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Quantum Video Tutorial</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+    video {
+      width: 80%;
+      max-width: 900px;
+      border: 2px solid #fff;
+      border-radius: 12px;
+      display: none; /* hidden until button is clicked */
+    }
+    .btn {
+      background: #007bff;
+      color: white;
+      padding: 14px 28px;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Quantum Video Tutorial</h1>
+
+  <!-- Video Player -->
+  <video id="tutorialVideo" autoplay muted loop controls>
+    <source src="1758175350962.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Button -->
+  <button class="btn" onclick="showVideo()">View Tutorial Video</button>
+
+  <script>
+    function showVideo() {
+      const video = document.getElementById("tutorialVideo");
+      video.style.display = "block";
+      video.play();
+    }
+  </script>
+
+</body>
+</html>
 
